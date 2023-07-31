@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HomeView from "../views/HomeView.vue";
+import HomeView from "@/views/HomeView.vue";
 import MainLayout from "@/layouts/MainLayout.vue";
 
 const router = createRouter({
@@ -15,9 +15,9 @@ const router = createRouter({
       },
     },
     {
-      path: "/search",
-      name: "search",
-      component: () => import("../views/SearchView.vue"),
+      path: "/favorites",
+      name: "favorites",
+      component: () => import("../views/FavoritesView.vue"),
       meta: {
         layout: MainLayout,
       },

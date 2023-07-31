@@ -1,5 +1,5 @@
 <template>
-  <div>SEARCH</div>
+  <div>Favorites</div>
 </template>
 
 <script setup></script>
