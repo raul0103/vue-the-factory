@@ -8,10 +8,12 @@
 import { ref } from "vue";
 import { onMounted } from "vue";
 import { getRandomImages } from "@/services/api.js";
-import { serialize } from "@/utils/image.js";
+import { useImage } from "@/composable/image.js";
 
 import ImageListSection from "@/components/sections/ImageListSection.vue";
 import SearchSection from "@/components/sections/SearchSection.vue";
+
+const { serialize } = useImage();
 
 let images = ref([]);
 

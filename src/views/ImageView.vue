@@ -62,11 +62,13 @@ import { useRoute } from "vue-router";
 import { useFavorite } from "@/composable/favorite.js";
 import { useImage } from "@/composable/image.js";
 import { getImageById } from "@/services/api.js";
-import { serialize } from "@/utils/image.js";
 
 import FullIcon from "@/components/icons/FullIcon.vue";
 import HeartIcon from "@/components/icons/HeartIcon.vue";
 import DownloadIcon from "@/components/icons/DownloadIcon.vue";
+
+const { setFavorite, checkFavoriteById } = useFavorite();
+const { openFullImage, serialize } = useImage();
 
 const route = useRoute();
 let image = ref(null);
@@ -84,7 +86,4 @@ async function getImage() {
     console.log("Ошибка при получении изображения");
   }
 }
-
-const { setFavorite, checkFavoriteById } = useFavorite();
-const { openFullImage } = useImage();
 </script>
