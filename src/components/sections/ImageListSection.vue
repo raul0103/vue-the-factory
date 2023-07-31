@@ -3,7 +3,7 @@
     <div class="container">
       <div class="image-list__row">
         <div
-          @click="image_store.setFullImage(item.urls.full)"
+          @click="openFullImage(item.urls.full)"
           :style="`background-image:url(${item.urls.small})`"
           class="image-list__item"
           v-for="item in items"
@@ -16,6 +16,7 @@
 
 <script setup>
 import { useImageStore } from "@/stores/image.js";
+import { useFullBoxStore } from "@/stores/full-box.js";
 
 const props = defineProps({
   items: {
@@ -26,4 +27,10 @@ const props = defineProps({
 });
 
 const image_store = useImageStore();
+const full_box_store = useFullBoxStore();
+
+function openFullImage(url) {
+  image_store.setFullImage(url);
+  full_box_store.open();
+}
 </script>
