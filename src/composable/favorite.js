@@ -27,7 +27,7 @@ export function useFavorite() {
 
     const favorite_ids = favorites?.map((item) => item.id);
 
-    if (favorite_ids.indexOf(id) > -1) {
+    if (favorite_ids && favorite_ids.indexOf(id) > -1) {
       return true;
     } else {
       return false;
