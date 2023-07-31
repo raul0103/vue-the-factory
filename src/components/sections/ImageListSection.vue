@@ -11,6 +11,9 @@
             :style="`background-image:url(${item.urls.small})`"
             class="image-list__item"
           ></div>
+          <button @click="setFavorite(item)" class="image-list__btn-favorite">
+            <HeartIcon :active="checkFavoriteById(item.id)" />
+          </button>
           <button
             @click="openFullImage(item.urls.full)"
             class="image-list__btn-full"
@@ -26,7 +29,9 @@
 <script setup>
 import { useImageStore } from "@/stores/image.js";
 import { useFullBoxStore } from "@/stores/full-box.js";
+import { useFavorite } from "@/composable/favorite.js";
 import FullIcon from "@/components/icons/FullIcon.vue";
+import HeartIcon from "@/components/icons/HeartIcon.vue";
 
 const props = defineProps({
   items: {
@@ -43,4 +48,6 @@ function openFullImage(url) {
   image_store.setFullImage(url);
   full_box_store.open();
 }
+
+const { setFavorite, checkFavoriteById } = useFavorite();
 </script>

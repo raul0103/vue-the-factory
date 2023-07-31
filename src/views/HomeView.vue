@@ -25,7 +25,6 @@ async function getImages() {
 
   if (response.type === "success") {
     images.value = response.response.map((image) => serialize(image));
-    console.log(response.response, images.value);
   } else {
     console.log("Ошибка при получении изображений");
   }
