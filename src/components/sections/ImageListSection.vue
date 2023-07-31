@@ -1,5 +1,5 @@
 <template>
-  <section class="image-list" v-if="items.length">
+  <section class="image-list" v-if="items && items.length">
     <div class="container">
       <div class="image-list__row">
         <div
