@@ -24,12 +24,26 @@
         @media ( max-width: $mobile-media-width )
             height: 321px
 
-        &:hover
-            transform: scale(1.1)
-
         &-container
             width: max-content
             overflow: hidden
             border-radius: 8px
+            position: relative
             @media ( max-width: $tablet-media-width )
                 width: 100%
+            &:hover
+                .image-list__item
+                    transform: scale(1.1)
+                .image-list__btn-full
+                    right: 10px
+    &__btn-full
+        position: absolute
+        bottom: 10px
+        right: -100px
+        transition: .3s
+        cursor: pointer
+        background: none
+        border: none
+        opacity: .7
+        &:hover
+            opacity: 1

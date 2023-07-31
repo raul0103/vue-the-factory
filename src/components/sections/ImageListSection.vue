@@ -8,10 +8,15 @@
           :key="item.id"
         >
           <div
-            @click="openFullImage(item.urls.full)"
             :style="`background-image:url(${item.urls.small})`"
             class="image-list__item"
           ></div>
+          <button
+            @click="openFullImage(item.urls.full)"
+            class="image-list__btn-full"
+          >
+            <FullIcon />
+          </button>
         </div>
       </div>
     </div>
@@ -21,6 +26,7 @@
 <script setup>
 import { useImageStore } from "@/stores/image.js";
 import { useFullBoxStore } from "@/stores/full-box.js";
+import FullIcon from "@/components/icons/FullIcon.vue";
 
 const props = defineProps({
   items: {
