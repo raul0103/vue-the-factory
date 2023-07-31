@@ -1,5 +1,8 @@
 <template>
-  <ImageListSection :items="getFavorites()" />
+  <div class="favorites">
+    <h1 class="page-title">Избранное</h1>
+    <ImageListSection :items="getFavorites()" />
+  </div>
 </template>
 
 <script setup>
