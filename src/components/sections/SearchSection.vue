@@ -23,14 +23,29 @@
 
 <script setup>
 import { reactive } from "vue";
+import { useImage } from "@/composable/image.js";
+import { useImageStore } from "@/stores/image.js";
+import { getRandomImages } from "@/services/api.js";
 
 import SearchIcon from "@/components/icons/SearchIcon.vue";
 
+const { serialize } = useImage();
+const image_store = useImageStore();
 const form = reactive({
   query: "",
 });
 
-const search = () => {
-  if (form.query.length) console.log(form);
-};
+async function search() {
+  if (!form.query.length) return;
+
+  const response = await getRandomImages(form);
+
+  if (response && response.type === "success") {
+    image_store.setSearchImages(
+      response.response.map((image) => serialize(image))
+    );
+  } else {
+    console.log("Ошибка при получении изображений");
+  }
+}
 </script>

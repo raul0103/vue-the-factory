@@ -20,7 +20,7 @@ export async function getRandomImages(params) {
 
 export async function getImageById(id) {
   if (!id) {
-    console.warning("Не указан id");
+    console.warn("Не указан id");
     return;
   }
 

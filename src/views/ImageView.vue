@@ -80,7 +80,7 @@ onMounted(() => {
 async function getImage() {
   const response = await getImageById(route.params.id);
 
-  if (response.type === "success") {
+  if (response && response.type === "success") {
     image.value = serialize(response.response);
   } else {
     console.log("Ошибка при получении изображения");
