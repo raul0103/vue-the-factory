@@ -6,6 +6,8 @@
         display: flex
         flex-wrap: wrap
         gap: 30px
+        @media ( max-width: $tablet-media-width )
+            justify-content: center
         @media ( max-width: $mobile-media-width )
             gap: 17px
     &__item
@@ -15,6 +17,8 @@
         background-repeat: no-repeat
         background-position: 50%
         background-size: cover
+        @media ( max-width: $tablet-media-width )
+            width: 100%
         @media ( max-width: $mobile-media-width )
             width: 100%
             height: 321px
