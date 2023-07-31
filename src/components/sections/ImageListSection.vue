@@ -3,12 +3,16 @@
     <div class="container">
       <div class="image-list__row">
         <div
-          @click="openFullImage(item.urls.full)"
-          :style="`background-image:url(${item.urls.small})`"
-          class="image-list__item"
+          class="image-list__item-container"
           v-for="item in items"
           :key="item.id"
-        ></div>
+        >
+          <div
+            @click="openFullImage(item.urls.full)"
+            :style="`background-image:url(${item.urls.small})`"
+            class="image-list__item"
+          ></div>
+        </div>
       </div>
     </div>
   </section>
