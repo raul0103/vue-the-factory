@@ -13,7 +13,7 @@ import { serialize } from "@/utils/image.js";
 import ImageListSection from "@/components/sections/ImageListSection.vue";
 import SearchSection from "@/components/sections/SearchSection.vue";
 
-let images = ref(null);
+let images = ref([]);
 
 onMounted(() => {
   getImages();

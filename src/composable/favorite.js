@@ -26,7 +26,12 @@ export function useFavorite() {
     }
   }
 
+  function getFavorites() {
+    return favorites;
+  }
+
   return {
+    getFavorites,
     setFavorite,
     checkFavoriteById,
   };
