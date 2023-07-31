@@ -2,6 +2,8 @@
 export function serialize(item) {
   return {
     id: item.id,
+    user: item.user,
     urls: item.urls,
+    links: item.links,
   };
 }

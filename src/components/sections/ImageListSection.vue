@@ -7,10 +7,12 @@
           v-for="item in items"
           :key="item.id"
         >
-          <div
-            :style="`background-image:url(${item.urls.small})`"
-            class="image-list__item"
-          ></div>
+          <EmptyLink :to="`/image/${item.id}`" :blank="true">
+            <div
+              :style="`background-image:url(${item.urls.small})`"
+              class="image-list__item"
+            ></div>
+          </EmptyLink>
           <button @click="setFavorite(item)" class="image-list__btn-favorite">
             <HeartIcon :active="checkFavoriteById(item.id)" />
           </button>
@@ -27,11 +29,11 @@
 </template>
 
 <script setup>
-import { useImageStore } from "@/stores/image.js";
-import { useFullBoxStore } from "@/stores/full-box.js";
 import { useFavorite } from "@/composable/favorite.js";
+import { useImage } from "@/composable/image.js";
 import FullIcon from "@/components/icons/FullIcon.vue";
 import HeartIcon from "@/components/icons/HeartIcon.vue";
+import EmptyLink from "@/components/links/EmptyLink.vue";
 
 const props = defineProps({
   items: {
@@ -41,13 +43,6 @@ const props = defineProps({
   },
 });
 
-const image_store = useImageStore();
-const full_box_store = useFullBoxStore();
-
-function openFullImage(url) {
-  image_store.setFullImage(url);
-  full_box_store.open();
-}
-
 const { setFavorite, checkFavoriteById } = useFavorite();
+const { openFullImage } = useImage();
 </script>

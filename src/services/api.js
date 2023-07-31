@@ -17,3 +17,14 @@ export async function getRandomImages(params) {
       return response;
     });
 }
+
+export async function getImageById(id) {
+  if (!id) {
+    console.warning("Не указан id");
+    return;
+  }
+
+  return await unsplash.photos.get({ photoId: id }).then((response) => {
+    return response;
+  });
+}

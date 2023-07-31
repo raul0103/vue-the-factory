@@ -13,6 +13,11 @@ const props = defineProps({
     required: true,
     default: "/",
   },
+  blank: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 const { link } = useLink(props);

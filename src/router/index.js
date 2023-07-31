@@ -22,6 +22,14 @@ const router = createRouter({
         layout: MainLayout,
       },
     },
+    {
+      path: "/image/:id",
+      name: "image",
+      component: () => import("../views/ImageView.vue"),
+      meta: {
+        layout: MainLayout,
+      },
+    },
   ],
 });
 

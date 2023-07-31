@@ -6,7 +6,11 @@ export function useLink(props) {
   const route = useRoute();
 
   const link = () => {
-    router.push(props.to);
+    if (props.blank) {
+      window.open(props.to, "_blank");
+    } else {
+      router.push(props.to);
+    }
   };
 
   const isActive = computed(() => {
